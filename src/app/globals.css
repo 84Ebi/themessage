@@ -1,1 +1,289 @@
 @import "tailwindcss";
+
+/* 8-Bit DOS Theme - Floppy Disk Era Aesthetic */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #000080; /* Classic DOS blue */
+  color: #AAAAAA; /* Light gray text */
+  font-family: 'Courier New', Courier, monospace;
+  overflow-x: hidden;
+  image-rendering: pixelated;
+}
+
+/* Scanline Effect (lighter) */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.05) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Terminal Card */
+.terminal-card {
+  background: #000080;
+  border: 3px solid #AAAAAA;
+  box-shadow: 0 4px 0 #000000;
+}
+
+.terminal-header {
+  background: #AAAAAA;
+  color: #000080;
+  border-bottom: 3px solid #FFFFFF;
+  padding: 8px 16px;
+  text-align: center;
+}
+
+.terminal-title {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Terminal Box Variants */
+.terminal-box {
+  background: #0000AA;
+  border: 2px solid #5555FF;
+  padding: 16px;
+}
+
+.terminal-box-minimal {
+  background: #000055;
+  border: 2px solid #AAAAAA;
+  padding: 24px;
+}
+
+/* Form Elements */
+.terminal-label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  color: #FFFF55; /* Bright yellow for labels */
+}
+
+.terminal-label-inline {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #FFFF55;
+  cursor: pointer;
+}
+
+.terminal-input,
+.terminal-textarea {
+  width: 100%;
+  background: #000000;
+  border: 2px solid #AAAAAA;
+  color: #FFFFFF;
+  padding: 12px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  outline: none;
+}
+
+.terminal-input:focus,
+.terminal-textarea:focus {
+  border-color: #FFFFFF;
+  background: #000055;
+}
+
+.terminal-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.terminal-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #FFFF55;
+  cursor: pointer;
+}
+
+/* Buttons - DOS Style */
+.terminal-button {
+  background: #AAAAAA;
+  border: 3px solid #FFFFFF;
+  border-bottom-color: #555555;
+  border-right-color: #555555;
+  color: #000000;
+  padding: 12px 24px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.1s;
+  box-shadow: 2px 2px 0 #000000;
+}
+
+.terminal-button:hover:not(:disabled) {
+  background: #FFFFFF;
+  border-top-color: #555555;
+  border-left-color: #555555;
+  border-bottom-color: #FFFFFF;
+  border-right-color: #FFFFFF;
+  box-shadow: inset 2px 2px 0 #000000;
+}
+
+.terminal-button:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.terminal-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.terminal-button-small {
+  background: #AAAAAA;
+  border: 2px solid #FFFFFF;
+  border-bottom-color: #555555;
+  border-right-color: #555555;
+  color: #000000;
+  padding: 8px 16px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.terminal-button-small:hover {
+  background: #FFFFFF;
+}
+
+.terminal-button-small:active {
+  transform: translate(1px, 1px);
+}
+
+.terminal-button-danger {
+  background: #AA0000;
+  border: 3px solid #FF5555;
+  border-bottom-color: #550000;
+  border-right-color: #550000;
+  color: #FFFFFF;
+  padding: 12px 24px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.1s;
+  box-shadow: 2px 2px 0 #000000;
+}
+
+.terminal-button-danger:hover {
+  background: #FF0000;
+  border-top-color: #550000;
+  border-left-color: #550000;
+  border-bottom-color: #FF5555;
+  border-right-color: #FF5555;
+}
+
+.terminal-button-danger:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+/* Status Messages */
+.terminal-hint {
+  font-size: 11px;
+  color: #5555FF;
+  margin-top: 4px;
+}
+
+.terminal-error {
+  background: #AA0000;
+  border: 2px solid #FF5555;
+  color: #FFFF55;
+  padding: 12px;
+  font-size: 12px;
+}
+
+.terminal-error-box {
+  background: #AA0000;
+  border: 3px solid #FF5555;
+  color: #FFFFFF;
+  padding: 24px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 4px 0 #000000;
+}
+
+.terminal-success {
+  background: #00AA00;
+  border: 2px solid #55FF55;
+  color: #FFFFFF;
+  padding: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.terminal-warning {
+  background: #AAAA00;
+  border: 2px solid #FFFF55;
+  color: #000000;
+  padding: 12px;
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Message Content Display */
+.terminal-message-content {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #FFFFFF;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Loading State */
+.terminal-loading {
+  color: #FFFF55;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* Link Styles */
+a {
+  color: #5555FF;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #FFFF55;
+}
+
+/* Selection Color */
+::selection {
+  background: #FFFF55;
+  color: #000080;
+}
