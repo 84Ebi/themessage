@@ -9,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@types/qrcode": "^1.5.6",
     "appwrite": "^21.5.0",
     "jspdf": "^3.0.4",
     "nanoid": "^5.1.6",
@@ -21,6 +20,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/qrcode": "^1.5.6",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
