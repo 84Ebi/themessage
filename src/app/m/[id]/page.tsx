@@ -61,32 +61,6 @@ export default function MessageViewPage() {
     }
   };
 
-  const handleDestroy = async () => {
-    if (!confirm('DESTROY THIS MESSAGE PERMANENTLY? THIS CANNOT BE UNDONE.')) {
-      return;
-    }
-
-    try {
-      // Try to get admin token from localStorage
-      const adminToken = localStorage.getItem(`admin_${messageId}`);
-      
-      const res = await fetch(`/api/messages/${messageId}/destroy`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ adminToken }),
-      });
-
-      if (!res.ok) {
-        throw new Error('Failed to destroy message');
-      }
-
-      setDecryptedContent('');
-      setError('MESSAGE DESTROYED. THIS LINK IS NOW INVALID.');
-    } catch (err: any) {
-      setError(err.message);
-    }
-  };
-
   const handleSubmitResponse = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!response.trim()) return;
@@ -197,16 +171,6 @@ export default function MessageViewPage() {
                 </form>
               </div>
             )}
-
-            {/* Destroy Button */}
-            <div className="terminal-box-minimal">
-              <button
-                onClick={handleDestroy}
-                className="terminal-button-danger w-full"
-              >
-                DESTROY MESSAGE
-              </button>
-            </div>
 
             {error && (
               <div className="terminal-error-box">
